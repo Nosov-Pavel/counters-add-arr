@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from "react";
 import './App.css';
+import CounterList from "./CounterList";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    const [counters, setCounters] = useState([0, 0, 0]);
 
+    const addCounter = () => {
+        const newCounters = [...counters];
+        newCounters.push(0);
+        setCounters(newCounters);
+
+    }
+    const counterPlus = (index) => {
+        const newCounters = counters.map( (el, i) => {
+            if (i === index ) return el + 1
+            return el
+        })
+        setCounters(newCounters)
+    }
+    const counterMinus = (index) => {
+        const newCounters = counters.map( (el, i) =>{
+            if (i === index) return el - 1
+            return el
+        })
+    }
+
+    return (
+        <div>
+            <button onClick={addCounter}>Add new</button>
+            <hr/>
+            <CounterList counterMinus={counterMinus} counterPlus={counterPlus} list={counters}/>
+        </div>
+    );
+
+}
 export default App;
