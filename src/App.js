@@ -1,10 +1,12 @@
 import React, {useState} from "react";
 import './App.css';
 import CounterList from "./CounterList";
+import Controller from "./Controller";
 
 
 function App() {
-    const [counters, setCounters] = useState([0, 0, 0]);
+    const initCounters = [0, 0, 0];
+    const [counters, setCounters] = useState(initCounters);
 
     const addCounter = () => {
         const newCounters = [...counters];
@@ -12,25 +14,31 @@ function App() {
         setCounters(newCounters);
 
     }
-    const counterPlus = (index) => {
+
+    const counterReset = () => {
+        setCounters(initCounters)
+    }
+
+    const counterChange = (index, val) => {
         const newCounters = counters.map( (el, i) => {
-            if (i === index ) return el + 1
+            if (i === index ) return el + val
             return el
         })
         setCounters(newCounters)
     }
-    const counterMinus = (index) => {
-        const newCounters = counters.map( (el, i) =>{
-            if (i === index) return el - 1
-            return el
-        })
+
+    const deleteCounter = (index) => {
+        const newCounter = counters.filter((el,i) => i !== index)
+
+        setCounters(newCounter);
     }
+
+
 
     return (
         <div>
-            <button onClick={addCounter}>Add new</button>
-            <hr/>
-            <CounterList counterMinus={counterMinus} counterPlus={counterPlus} list={counters}/>
+            <Controller addCounter={addCounter} counterReset={counterReset}/>
+            <CounterList deleteCounter={deleteCounter} counterChange={counterChange} list={counters}/>
         </div>
     );
 
