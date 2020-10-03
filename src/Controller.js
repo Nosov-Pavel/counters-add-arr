@@ -9,7 +9,7 @@ function Controller(props) {
         <div>
             <button onClick={props.counterReset}>reset to init</button>
             <button onClick={props.addCounter}>Add new</button>
-            <input type="text"/>
+            <input type="text" value={4}/>
             <hr/>
         </div>
     );
