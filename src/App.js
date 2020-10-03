@@ -8,9 +8,10 @@ function App() {
     const initCounters = [0, 0, 0];
     const [counters, setCounters] = useState(initCounters);
 
-    const addCounter = () => {
+    const addCounter = (value) => {
         const newCounters = [...counters];
-        newCounters.push(0);
+        value = value? value: 0;
+        newCounters.push(value);
         setCounters(newCounters);
 
     }
