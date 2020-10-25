@@ -8,7 +8,8 @@ function ListItem(props) {
     return (
         <div>
             {props.el.counter}
-            <button>↑</button>
+            <button>⇡</button>
+            <button>⇣</button>
 
         </div>
 
