@@ -1,5 +1,6 @@
 import React from "react";
 import './App.css';
+import ListItem from "./ListItem";
 
 function List(props) {
 
@@ -7,10 +8,7 @@ function List(props) {
 
     return (
         <div>
-            {props.list.map(el =>
-            <div>
-                {el.counter}
-            </div>)}
+            {props.list.map(el => <ListItem key={el.id} el={el}/>)}
 
         </div>
 
