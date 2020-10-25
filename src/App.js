@@ -1,46 +1,23 @@
 import React, {useState} from "react";
 import './App.css';
-import CounterList from "./CounterList";
-import Controller from "./Controller";
+import List from "./List";
+
 
 
 function App() {
-    const initCounters = [0, 0, 0];
-    const [counters, setCounters] = useState(initCounters);
-
-    const addCounter = (value) => {
-        const newCounters = [...counters];
-        value = value? value: 0;
-        newCounters.push(value);
-        setCounters(newCounters);
-
-    }
-
-    const counterReset = () => {
-        setCounters(initCounters)
-    }
-
-    const counterChange = (index, val) => {
-        const newCounters = counters.map( (el, i) => {
-            if (i === index ) return el + val
-            return el
-        })
-        setCounters(newCounters)
-    }
-
-    const deleteCounter = (index) => {
-        const newCounter = counters.filter((el,i) => i !== index)
-
-        setCounters(newCounter);
-    }
-
+    const [list, setList] = useState([
+        {id: 1, counter: 12},
+        {id: 2, counter: 5},
+        {id: 3, counter: 36},
+    ])
 
 
     return (
         <div>
-            <Controller addCounter={addCounter} counterReset={counterReset}/>
-            <CounterList deleteCounter={deleteCounter} counterChange={counterChange} list={counters}/>
+            <List list={list}/>
+
         </div>
+
     );
 
 }
