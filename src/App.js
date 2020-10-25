@@ -13,12 +13,23 @@ function App() {
         const newList = [...list, {id:Math.random(), counter: 0}];
         setList(newList);
     }
-    const swapCounter = (index) => {
+    const moveCounterUp = (index) => {
         const newList = [...list];
 
         const currentEl = newList[index];
         newList[index] = newList[index - 1];
         newList[index-1] = currentEl;
+
+        setList(newList)
+
+
+    }
+    const moveCounterDown = (index) => {
+        const newList = [...list];
+
+        const currentEl = newList[index];
+        newList[index] = newList[index + 1];
+        newList[index + 1] = currentEl;
 
         setList(newList)
 
@@ -34,8 +45,8 @@ function App() {
                 return(
                     <div>
                         {el.counter}
-                        <button onClick={() => swapCounter (i)}>⇡</button>
-                        <button>⇣</button>
+                        <button onClick={() => moveCounterUp (i)}>⇡</button>
+                        <button onClick={() => moveCounterDown(i)}>⇣</button>
                     </div>
 
             )
