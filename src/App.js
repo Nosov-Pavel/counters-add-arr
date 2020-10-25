@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import './App.css';
 import List from "./List";
+import Controller from "./Controller";
 
 
 
@@ -11,9 +12,15 @@ function App() {
         {id: 3, counter: 36},
     ])
 
+    const addCounter = () => {
+        const newList = [...list, {id:Math.random(), counter: 0}];
+        setList(newList);
+    }
+
 
     return (
         <div>
+            <Controller addCounter={addCounter}/>
             <List list={list}/>
 
         </div>
