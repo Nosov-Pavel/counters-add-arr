@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import './App.css';
-import List from "./List";
-import Controller from "./Controller";
+
 
 
 
@@ -16,12 +15,25 @@ function App() {
         const newList = [...list, {id:Math.random(), counter: 0}];
         setList(newList);
     }
+    const swapCounter = () => {
+
+    }
 
 
     return (
         <div>
-            <Controller addCounter={addCounter}/>
-            <List list={list}/>
+            <button onClick={addCounter}>add</button>
+            {list.map((el, i) => {
+                return(
+                    <div>
+                        {el.counter}
+                        <button onClick={() => swapCounter (i)}>⇡</button>
+                        <button>⇣</button>
+                    </div>
+
+            )
+            })}
+
 
         </div>
 
