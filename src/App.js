@@ -35,6 +35,17 @@ function App() {
 
 
     }
+    const moveCounter = (currentIndex, nextIndex) => {
+        const newList = [...list];
+
+        const currentEl = newList[currentIndex];
+        newList[currentIndex] = newList[nextIndex];
+        newList[nextIndex] = currentEl;
+
+        setList(newList)
+
+
+    }
 
 
     return (
@@ -45,8 +56,8 @@ function App() {
                 return(
                     <div>
                         {el.counter}
-                        <button onClick={() => moveCounterUp (i)}>⇡</button>
-                        <button onClick={() => moveCounterDown(i)}>⇣</button>
+                        <button onClick={() => moveCounter (i, i-1)}>⇡</button>
+                        <button onClick={() => moveCounter(i, i+1)}>⇣</button>
                     </div>
 
             )
