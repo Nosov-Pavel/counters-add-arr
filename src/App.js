@@ -46,6 +46,14 @@ function App() {
 
 
     }
+    const counterChange = (id, value) => {
+        const newList = list.map((el) => {
+            if (el.id === id) return {...el, counter: el.counter + value}
+
+            return el
+        })
+        setList(newList)
+    }
 
 
     return (
@@ -55,6 +63,7 @@ function App() {
             {list.map((el, i) => {
                 return(
                     <div>
+                        <button onClick={() => counterChange(el.id, 1)}>+</button>
                         {el.counter}
                         {i !== 0 && <button onClick={() => moveCounter (i, i -1)}>⇡</button>}
                         {i !== list.length -1 && <button onClick={() => moveCounter(i, i + 1)}>⇣</button>}
