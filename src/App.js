@@ -9,6 +9,8 @@ function App() {
         {id: 3, counter: 36},
     ])
 
+    const [editMode, setEditMode] = useState(false);
+
     const addCounter = () => {
         const newList = [...list, {id:Math.random(), counter: 0}];
         setList(newList);
@@ -36,15 +38,15 @@ function App() {
     //
     // }
     const moveCounter = (currentIndex, nextIndex) => {
-        const newList = [...list];
 
+        const newList = [...list];
         const currentEl = newList[currentIndex];
         newList[currentIndex] = newList[nextIndex];
+
         newList[nextIndex] = currentEl;
 
+
         setList(newList)
-
-
     }
     const counterChange = (id, value) => {
         const newList = list.map((el) => {
@@ -53,8 +55,8 @@ function App() {
             return el
         })
         setList(newList)
-    }
 
+    }
 
     return (
         <div>
@@ -64,6 +66,7 @@ function App() {
                 return(
                     <div>
                         <button onClick={() => counterChange(el.id, 1)}>+</button>
+                        <button onClick={() => counterChange(el.id, - 1)}>-</button>
                         {el.counter}
                         {i !== 0 && <button onClick={() => moveCounter (i, i -1)}>⇡</button>}
                         {i !== list.length -1 && <button onClick={() => moveCounter(i, i + 1)}>⇣</button>}
