@@ -56,7 +56,8 @@ function App() {
                 return(
                     <div>
                         {el.counter}
-                        <button onClick={() => moveCounter (i, i -1)}>⇡</button>
+                        {i !== 0 && <button onClick={() => moveCounter (i, i -1)}>⇡</button>}
+
                         <button onClick={() => moveCounter(i, i+1)}>⇣</button>
                     </div>
 
