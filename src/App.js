@@ -15,6 +15,10 @@ function App() {
         const newList = [...list, {id:Math.random(), counter: 0}];
         setList(newList);
     }
+    const changeAditMove = () => {
+        setEditMode(setEditMode);
+    }
+
     // const moveCounterUp = (index) => {
     //     const newList = [...list];
     //
@@ -70,6 +74,8 @@ function App() {
                         {el.counter}
                         {i !== 0 && <button onClick={() => moveCounter (i, i -1)}>⇡</button>}
                         {i !== list.length -1 && <button onClick={() => moveCounter(i, i + 1)}>⇣</button>}
+                        {editMode && <input type="text"/>}
+                        <button onClick={changeAditMove}>edit</button>
                     </div>
 
             )
