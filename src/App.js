@@ -65,17 +65,24 @@ function App() {
     return (
         <div>
             <button onClick={addCounter}>add</button>
+
             <hr/>
+
             {list.map((el, i) => {
                 return(
                     <div>
                         <button onClick={() => counterChange(el.id, 1)}>+</button>
                         <button onClick={() => counterChange(el.id, - 1)}>-</button>
                         {el.counter}
+
                         {i !== 0 && <button onClick={() => moveCounter (i, i -1)}>⇡</button>}
                         {i !== list.length -1 && <button onClick={() => moveCounter(i, i + 1)}>⇣</button>}
-                        {editMode && <input type="text"/>}
+                        {editMode &&
+                        <input type="text"/>
+                        }
+
                         <button onClick={changeAditMove}>edit</button>
+
                     </div>
 
             )
