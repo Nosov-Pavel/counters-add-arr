@@ -13,9 +13,14 @@ function App() {
     ]
     const [todos, setTodos] = useState(initState);
 
+    const deleteTodo = (id) => {
+        const newList = todos.filter(el => el.id !== id);
+        setTodos(newList);
+    }
+
     return (
         <div>
-            {todos.map(el => <ToDo todo={el}/>)}
+            {todos.map(el => <ToDo todo={el} deleteTodo={deleteTodo()}/>)}
 
         </div>
     )

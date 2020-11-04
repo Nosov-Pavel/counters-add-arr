@@ -9,6 +9,7 @@ function ToDo(props) {
         <div>
             <h4>{props.todo.title}</h4>
             <p>{props.todo.description}</p>
+            <br/>
 
 
         </div>
