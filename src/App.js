@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import './App.css';
 
 
@@ -9,7 +9,9 @@ function App() {
         {id:3, title:'Third', description: 'learn JS'},
         {id:4, title:'Forth', description: 'learn REACT'},
     ]
-    return(
+    const [todos, setTodos] = useState(initState);
+
+    return (
         <div>
 
 
