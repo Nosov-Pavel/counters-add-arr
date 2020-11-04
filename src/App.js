@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import './App.css';
+import ToDo from "./ToDo";
+
 
 
 function App() {
@@ -13,7 +15,7 @@ function App() {
 
     return (
         <div>
-
+            {todos.map(el => <ToDo todo={el}/>)}
 
         </div>
     )
