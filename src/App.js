@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState} from 'react';
 import './App.css';
 import ToDo from "./ToDo";
 
@@ -20,7 +20,7 @@ function App() {
 
     return (
         <div>
-            {todos.map(el => <ToDo todo={el} deleteTodo={deleteTodo()}/>)}
+            {todos.map(el => <ToDo todo={el} deleteTodo={deleteTodo}/>)}
 
         </div>
     )
