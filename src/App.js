@@ -7,8 +7,8 @@ import ToDo from "./ToDo";
 function App() {
     const initState = [
         {id:1, title:'Fist', description: 'learn HTML'},
-        {id:2, title:'Second', description: 'learn CSS'},
         {id:3, title:'Third', description: 'learn JS'},
+        {id:2, title:'Second', description: 'learn CSS'},
         {id:4, title:'Forth', description: 'learn REACT'},
     ]
     const [todos, setTodos] = useState(initState);
@@ -18,9 +18,19 @@ function App() {
         setTodos(newList);
     }
 
+    const moveTodo = (currentIndex, nextIndex) => {
+        const newList = [...todos];
+
+        const currentElem = newList[currentIndex];
+        newList[currentIndex] = newList[nextIndex];
+        newList[nextIndex] = currentElem;
+
+        setTodos(nextIndex)
+    }
+
     return (
         <div>
-            {todos.map(el => <ToDo todo={el} deleteTodo={deleteTodo}/>)}
+            {todos.map((el,index) => <ToDo todo={el} index={index} deleteTodo={deleteTodo} moveTodo={moveTodo}/>)}
 
         </div>
     )
