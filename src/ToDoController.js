@@ -5,15 +5,18 @@ import './App.css';
 function ToDoController() {
 const [newTitle, setNewTitle] = useState('');
 
+const addNewButtonHendler = () => {
+    console.log(newTitle);
+}
 
 
     return (
         <div>
             <label>title:</label>
-            <input type="text"/>
+            <input type="text" onClick={(event) => setNewTitle(e.target.value)}/>
             <label>description:</label>
             <input type="text"/>
-            <button>add new todo</button>
+            <button onClick={addNewButtonHendler}>add new todo</button>
             <hr/>
 
         </div>

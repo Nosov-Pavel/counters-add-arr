@@ -32,11 +32,13 @@ function App() {
         <div>
             <ToDoController/>
 
-            {todos.map((el, index) => <ToDo isLast={index === todos.length - 1}
-                                            todo={el}
-                                            index={index}
-                                            deleteTodo={deleteTodo}
-                                            moveTodo={moveTodo}/>
+            {todos.map((el, index) => <ToDo
+                key={el.id}
+                isLast={index === todos.length - 1}
+                todo={el}
+                index={index}
+                deleteTodo={deleteTodo}
+                moveTodo={moveTodo}/>
             )}
 
         </div>
