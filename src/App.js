@@ -25,20 +25,20 @@ function App() {
         newList[currentIndex] = newList[nextIndex];
         newList[nextIndex] = currentElem;
 
-        setTodos(nextIndex)
+        setTodos(newList)
     }
 
     return (
         <div>
-            {todos.map((el, index) => <ToDo isLast={index === todos.length -1}
-                todo={el}
-                index={index}
-                deleteTodo={deleteTodo}
-                moveTodo={moveTodo}/>
+                 {todos.map((el, index) => <ToDo isLast={index === todos.length -1}
+                                                           todo={el}
+                                                           index={index}
+                                                           deleteTodo={deleteTodo}
+                                                           moveTodo={moveTodo}/>
                 )}
 
         </div>
-    )
+    );
 
 }
 export default App;
