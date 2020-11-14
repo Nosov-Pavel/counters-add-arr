@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import './App.css';
 import ToDo from "./ToDo";
-
+import ToDoController from "./ToDoController";
 
 
 function App() {
     const initState = [
-        {id:1, title:'Fist', description: 'learn HTML'},
-        {id:3, title:'Third', description: 'learn JS'},
-        {id:2, title:'Second', description: 'learn CSS'},
-        {id:4, title:'Forth', description: 'learn REACT'},
+        {id: 1, title: 'Fist', description: 'learn HTML'},
+        {id: 3, title: 'Third', description: 'learn JS'},
+        {id: 2, title: 'Second', description: 'learn CSS'},
+        {id: 4, title: 'Forth', description: 'learn REACT'},
     ]
     const [todos, setTodos] = useState(initState);
 
@@ -30,15 +30,18 @@ function App() {
 
     return (
         <div>
-                 {todos.map((el, index) => <ToDo isLast={index === todos.length -1}
-                                                           todo={el}
-                                                           index={index}
-                                                           deleteTodo={deleteTodo}
-                                                           moveTodo={moveTodo}/>
-                )}
+            <ToDoController/>
+
+            {todos.map((el, index) => <ToDo isLast={index === todos.length - 1}
+                                            todo={el}
+                                            index={index}
+                                            deleteTodo={deleteTodo}
+                                            moveTodo={moveTodo}/>
+            )}
 
         </div>
     );
 
 }
+
 export default App;
