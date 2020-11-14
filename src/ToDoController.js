@@ -13,7 +13,7 @@ const addNewButtonHendler = () => {
     return (
         <div>
             <label>title:</label>
-            <input type="text" onClick={(event) => setNewTitle(e.target.value)}/>
+            <input type="text" onClick={(event) => setNewTitle(event.target.value)}/>
             <label>description:</label>
             <input type="text"/>
             <button onClick={addNewButtonHendler}>add new todo</button>
