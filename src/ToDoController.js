@@ -2,10 +2,11 @@ import React, {useState} from 'react';
 import './App.css';
 
 
-function ToDoController() {
+function TodoController() {
 const [newTitle, setNewTitle] = useState('');
+const [newDescription, setNewDescription] = useState('');
 
-const addNewButtonHendler = () => {
+const addNewButtonHandler = () => {
     console.log(newTitle);
 }
 
@@ -13,14 +14,15 @@ const addNewButtonHendler = () => {
     return (
         <div>
             <label>title:</label>
-            <input type="text" onClick={(event) => setNewTitle(event.target.value)}/>
+            <input type="text" onChange={(event) => setNewTitle(event.target.value)}/>
+
             <label>description:</label>
             <input type="text"/>
-            <button onClick={addNewButtonHendler}>add new todo</button>
+            <button onClick={addNewButtonHandler}>add new todo</button>
             <hr/>
 
         </div>
     );
 
 }
-export default ToDoController;
+export default TodoController;
