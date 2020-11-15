@@ -2,13 +2,14 @@ import React, {useState} from 'react';
 import './App.css';
 
 
-function TodoController() {
+function TodoController(props) {
 const [newTitle, setNewTitle] = useState('');
 const [newDescription, setNewDescription] = useState('');
 
 const addNewButtonHandler = () => {
-    console.log(newTitle);
+    props.addTodo(newDescription);
 }
+
 
 
     return (
@@ -17,7 +18,8 @@ const addNewButtonHandler = () => {
             <input type="text" onChange={(event) => setNewTitle(event.target.value)}/>
 
             <label>description:</label>
-            <input type="text"/>
+            <input type="text" onChange={(event) => setNewDescription(event.target.value)}/>
+
             <button onClick={addNewButtonHandler}>add new todo</button>
             <hr/>
 

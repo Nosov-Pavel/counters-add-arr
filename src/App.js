@@ -28,9 +28,19 @@ function App() {
         setTodos(newList)
     }
 
+    const addTodo = (newTitle, newDescription) => {
+        const newTodo = {
+            id: Math.random(),
+            title: newTitle,
+            description: newDescription
+        };
+        const newList = [...todos, newTodo];
+        setTodos(newList);
+    }
+
     return (
         <div>
-            <ToDoController/>
+            <ToDoController addTodo={addTodo}/>
 
             {todos.map((el, index) => <ToDo
                 key={el.id}
