@@ -7,7 +7,7 @@ const [newTitle, setNewTitle] = useState('');
 const [newDescription, setNewDescription] = useState('');
 
 const addNewButtonHandler = () => {
-    props.addTodo(newDescription);
+    props.addTodo(newTitle, newDescription);
 }
 
 
