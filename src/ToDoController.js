@@ -30,6 +30,7 @@ function TodoController(props) {
                            onChange={(event) => setNewDescription(event.target.value)}/>
 
                     <button onClick={addNewButtonHandler}>save</button>
+                    <button onClick={() => setIsAddModeOn(false)}>cancel</button>
                 </>
             }
 
