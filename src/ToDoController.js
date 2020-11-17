@@ -11,12 +11,14 @@ function TodoController(props) {
         props.addTodo(newTitle, newDescription);
         setNewTitle('');
         setNewDescription('');
+        setIsAddModeOn(false);
     }
 
 
     return (
         <div>
-            <button onClick={() => setIsAddModeOn(!isAddModeOn)}>add new todo</button>
+            {!isAddModeOn && <button onClick={() => setIsAddModeOn(!isAddModeOn)}>add new todo</button>}
+
             {isAddModeOn &&
                 <>
                     <label>title:</label>
