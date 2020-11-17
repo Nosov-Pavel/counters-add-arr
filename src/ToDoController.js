@@ -18,7 +18,7 @@ const addNewButtonHandler = () => {
             <input type="text" value={newTitle} onChange={(event) => setNewTitle(event.target.value)}/>
 
             <label>description:</label>
-            <input type="text" onChange={(event) => setNewDescription(event.target.value)}/>
+            <input type="text" value={newDescription} onChange={(event) => setNewDescription(event.target.value)}/>
 
             <button onClick={addNewButtonHandler}>add new todo</button>
             <hr/>
