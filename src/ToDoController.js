@@ -16,6 +16,7 @@ const addNewButtonHandler = () => {
 
     return (
         <div>
+            <button>add new todo</button>
             <label>title:</label>
             <input type="text"
                    value={newTitle}
