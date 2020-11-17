@@ -16,8 +16,8 @@ function TodoController(props) {
 
     return (
         <div>
-            <button>add new todo</button>
-            {false &&
+            <button onClick={() => setIsAddModeOn(!isAddModeOn)}>add new todo</button>
+            {isAddModeOn &&
                 <>
                     <label>title:</label>
                     <input type="text"
