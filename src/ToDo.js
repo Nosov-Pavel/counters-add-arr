@@ -15,7 +15,7 @@ function ToDo(props) {
             <button disabled={props.index === 0} onClick={() => props.moveTodo(props.index, props.index -1)}>⇡</button>
             <button disabled={props.isLast} onClick={() => props.moveTodo(props.index, props.index +1)}>⇣</button>
             <label>title: </label>
-            <input type="text"/>
+            <input type="text" onChange={(e) => setNewTitle(e.target.value)}/>
             <button>update</button>
             <br/>
         </div>
