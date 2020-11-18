@@ -36,6 +36,13 @@ function App() {
         };
         const newList = [...todos, newTodo];
         setTodos(newList);
+
+        const aditTodo = (newTitle, id) => {
+            const newList = todos.map(el =>{
+                if (el.id === id) return{...el, title: newTitle}
+            })
+
+        }
     }
 
     return (
