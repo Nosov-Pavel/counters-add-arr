@@ -37,7 +37,7 @@ function App() {
         const newList = [...todos, newTodo];
         setTodos(newList);
 
-        const aditTodo = (newTitle, id) => {
+        const editTodo = (newTitle, id) => {
             const newList = todos.map(el => {
                 if (el.id === id) return{...el, title: newTitle}
                 return el
@@ -45,7 +45,7 @@ function App() {
             setTodos(newList);
 
         }
-    }
+
 
     return (
         <div>
@@ -56,7 +56,7 @@ function App() {
                 isLast={index === todos.length - 1}
                 todo={el}
                 index={index}
-                editTodo={aditTodo}
+                editTodo={editTodo}
                 deleteTodo={deleteTodo}
                 moveTodo={moveTodo}/>
             )}
